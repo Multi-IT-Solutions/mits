@@ -3,826 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MITS - Multi IT Solutions Brochure</title>
+    <title>Business Brochure</title>
     <style>
-        :root {
-            --primary-blue: #003399;
-            --dark-blue: #002266;
-            --light-bg: #f4f7fc;
-            --accent-blue: #0055ff;
-            --text-dark: #222222;
-            --text-muted: #555555;
-            --border-color: #d1dcff;
-        }
-
+        /* RESET & BASE STYLES */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #e0e6ed;
-            padding: 20px;
+            background-color: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
-        .brochure-container {
-            width: 100%;
-            max-width: 800px;
+        /* BROCHURE CARD CONTAINER */
+        .brochure-card {
             background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #ccc;
-        }
-
-        /* GRID HEADER */
-        .header-section {
-            display: grid;
-            grid-template-columns: 55% 45%;
-            min-height: 380px;
-            background: #ffffff;
-            position: relative;
-        }
-
-        .header-left {
-            padding: 35px 10px 20px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            z-index: 10;
-        }
-
-        /* LOGO CONTAINER - ADJUSTED */
-        .logo-container {
             width: 100%;
-            max-width: 280px;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        
-        .logo-img {
-            max-width: 100%;
-            height: auto;
-            max-height: 90px; /* Adjusted size */
-            object-fit: contain;
-            display: block;
-        }
-
-        .main-headline {
-            font-size: 30px;
-            font-weight: 800;
-            color: var(--dark-blue);
-            line-height: 1.15;
-            text-transform: uppercase;
-        }
-
-        .main-headline span {
-            color: var(--accent-blue);
-            display: block;
-            font-size: 38px;
-        }
-
-        .sub-headline {
-            margin-top: 15px;
-            font-size: 14.5px;
-            color: var(--text-dark);
-            line-height: 1.4;
-        }
-
-        .sub-headline strong {
-            color: var(--primary-blue);
-        }
-
-        /* RIGHT HEADER */
-        .header-right {
-            position: relative;
-            height: 100%;
-            width: 100%;
-            overflow: visible;
-        }
-
-        .hero-arc-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 115%;
-            height: 100%;
-            background: linear-gradient(135deg, #0044cc, #001144);
-            border-bottom-left-radius: 100% 75%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-left: 30px;
-            z-index: 1;
-        }
-
-        /* LAPTOP GRAPHIC - MADE SMALLER */
-        .laptop-graphic-container {
-            width: 80%;
-            max-width: 240px; /* Reduced from 300px */
-            height: auto;
-            display: block;
-        }
-
-        /* BADGES ROW SECTION */
-        .badges-row {
-            display: flex;
-            background: var(--primary-blue);
-            border-top-left-radius: 25px;
-            border-bottom-left-radius: 25px;
-            padding: 10px 20px;
-            margin-left: 40px;
-            margin-top: 10px;
-            position: relative;
-            z-index: 20;
-            justify-content: space-around;
-        }
-
-        .badge-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #ffffff;
-            text-align: center;
-            padding: 5px 10px;
-        }
-
-        .badge-item svg {
-            width: 28px;
-            height: 28px;
-            fill: #ffffff;
-            margin-bottom: 5px;
-        }
-
-        .badge-item span {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
-        }
-
-        /* MAIN SERVICES GRID */
-        .services-section {
-            margin: 25px 40px 15px 40px;
-            border: 2px solid var(--border-color);
+            max-width: 450px;
             border-radius: 15px;
-            padding: 25px 20px 15px 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* HEADER IMAGE / GRAPHIC AREA */
+        .brochure-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
             position: relative;
-            z-index: 10;
         }
 
-        .services-title-tag {
-            position: absolute;
-            top: -18px;
-            left: 25px;
-            background: var(--dark-blue);
-            color: #ffffff;
-            padding: 6px 24px;
-            font-weight: bold;
-            font-size: 15px;
-            border-radius: 8px;
+        .brochure-header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: 30px;
-            row-gap: 16px;
-        }
-
-        .service-card {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .service-icon {
-            width: 40px;
-            height: 40px;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-
-        .service-icon svg {
-            width: 100%;
-            height: 100%;
-            fill: var(--primary-blue);
-        }
-
-        .service-details h3 {
-            font-size: 13.5px;
-            color: var(--dark-blue);
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 2px;
-        }
-
-        .service-details p {
-            font-size: 12px;
-            color: var(--text-dark);
-            line-height: 1.3;
-        }
-
-        .service-details span.sub-info {
-            display: block;
-            font-size: 11.5px;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-top: 1px;
-        }
-
-        /* ACADEMIC & REPORT BANNER STRIPS */
-        .wide-services-container {
-            margin-top: 15px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .wide-service-banner {
-            background: var(--primary-blue);
-            color: #ffffff;
-            border-radius: 25px;
-            padding: 10px 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .wide-banner-icon {
-            width: 35px;
-            height: 35px;
-            fill: #ffffff;
-            margin-right: 12px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .wide-banner-text h4 {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            margin-bottom: 1px;
-        }
-
-        .wide-banner-text p {
-            font-size: 11px;
+        .brochure-header p {
+            font-size: 14px;
             opacity: 0.9;
-            line-height: 1.2;
         }
 
-        /* QUALITY & TRUST HOOK */
-        .trust-section {
-            margin: 15px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        /* MAIN CONTENT AREA */
+        .brochure-body {
+            padding: 30px 20px;
         }
 
-        .quality-badge {
-            width: 95px;
-            height: 95px;
-            background: var(--dark-blue);
-            color: #ffffff;
-            border-radius: 50%;
+        .services-list {
+            margin-bottom: 25px;
+        }
+
+        .service-item {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .service-item::before {
+            content: "✓";
+            color: #2a5298;
             font-weight: bold;
-            font-size: 11px;
-            line-height: 1.2;
-            padding: 10px;
-            border: 4px double #ffffff;
-            box-shadow: 0 0 0 3px var(--dark-blue);
-            text-transform: uppercase;
-            flex-shrink: 0;
-        }
-
-        .trust-message {
-            flex-grow: 1;
-            padding-left: 25px;
-        }
-
-        .trust-message h2 {
-            font-size: 16px;
-            color: var(--primary-blue);
-            font-weight: 700;
-        }
-
-        .trust-message h2 span {
-            color: var(--dark-blue);
-            font-size: 20px;
-            display: block;
-            font-weight: bold;
-        }
-
-        .trust-message p {
-            font-size: 13.5px;
-            color: var(--text-dark);
-            margin-top: 2px;
-        }
-
-        .footer-illustration {
-            width: 180px;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .footer-illustration svg {
-            width: 100%;
-            height: auto;
-        }
-
-        /* BRAND METRIC CONTACT FOOTER */
-        .contact-footer-bar {
-            background: var(--dark-blue);
-            color: #ffffff;
-            padding: 15px 30px;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr 1fr;
-            gap: 15px;
-            align-items: center;
-            border-top: 3px solid var(--accent-blue);
-        }
-
-        .footer-info-block {
-            display: flex;
-            align-items: center;
-            font-size: 11.5px;
-        }
-
-        .footer-info-block svg {
-            width: 24px;
-            height: 24px;
-            fill: #ffffff;
             margin-right: 10px;
-            flex-shrink: 0;
         }
 
-        .footer-info-block p {
-            line-height: 1.3;
-        }
-
-        .footer-info-block strong {
-            display: block;
-            font-size: 12px;
-            margin-bottom: 1px;
-        }
-
-        /* CLICKABLE LINKS STYLING */
-        .footer-info-block a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-        
-        .footer-info-block a:hover {
-            text-decoration: underline;
-        }
-
-        .bottom-tagline {
-            background: #ffffff;
+        /* FOOTER / CONTACT SECTION */
+        .brochure-footer {
+            background: #222;
+            color: white;
+            padding: 25px 20px;
             text-align: center;
-            padding: 8px 0;
-            font-size: 11px;
-            font-weight: bold;
-            color: var(--primary-blue);
-            letter-spacing: 3px;
-            text-transform: uppercase;
         }
 
-        /* =======================================================
-            👇 HIGHLY OPTIMIZED RESPONSIVE MEDIA QUERY FOR MOBILE 👇
-           ======================================================= */
-        @media screen and (max-width: 680px) {
-            body {
-                padding: 0;
-                background-color: #ffffff;
-            }
+        .brochure-footer p {
+            font-size: 13px;
+            color: #bbb;
+            margin-bottom: 15px;
+        }
 
-            .brochure-container {
-                width: 100%;
-                box-shadow: none;
-                border: none;
-            }
+        /* CRITICAL: CLICKABLE LINKS STYLING */
+        .contact-info-block {
+            margin: 10px 0;
+        }
 
-            .header-section {
-                grid-template-columns: 1fr; 
-                min-height: auto;
-                text-align: center;
-                padding-bottom: 10px;
-            }
-
-            .header-left {
-                padding: 25px 15px 10px 15px;
-                align-items: center;
-            }
-
-            .logo-container {
-                justify-content: center;
-                margin-bottom: 15px;
-            }
-
-            .logo-img {
-                max-height: 75px;
-            }
-
-            .main-headline {
-                font-size: 22px;
-            }
-
-            .main-headline span {
-                font-size: 28px;
-            }
-
-            .sub-headline {
-                font-size: 13.5px;
-                margin-top: 8px;
-            }
-
-            .header-right {
-                height: 120px;
-                margin-top: 5px;
-                overflow: hidden;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .hero-arc-bg {
-                width: 92%;
-                height: 90%;
-                border-radius: 15px;
-                padding: 10px;
-                position: relative;
-                left: auto;
-                right: auto;
-            }
-
-            .laptop-graphic-container {
-                width: 110px;
-            }
-
-            .badges-row {
-                margin: 10px 15px 0 15px;
-                border-radius: 12px;
-                padding: 8px 5px;
-            }
-
-            .badge-item svg {
-                width: 22px;
-                height: 22px;
-            }
-
-            .badge-item span {
-                font-size: 9.5px;
-            }
-
-            .services-section {
-                margin: 25px 15px 15px 15px;
-                padding: 20px 12px 12px 12px;
-            }
-
-            .services-title-tag {
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 12px;
-                padding: 4px 18px;
-                top: -14px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                row-gap: 14px;
-            }
-
-            .service-icon {
-                width: 32px;
-                height: 32px;
-                margin-right: 10px;
-            }
-
-            .service-details h3 {
-                font-size: 13px;
-            }
-
-            .service-details p {
-                font-size: 11.5px;
-            }
-
-            .wide-services-container {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .wide-service-banner {
-                padding: 8px 12px;
-                border-radius: 15px;
-            }
-
-            .trust-section {
-                margin: 15px;
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-
-            .quality-badge {
-                width: 80px;
-                height: 80px;
-                font-size: 9.5px;
-                padding: 5px;
-            }
-
-            .trust-message h2 {
-                font-size: 14px;
-            }
-
-            .trust-message h2 span {
-                font-size: 17px;
-            }
-
-            .footer-illustration {
-                display: none;
-            }
-
-            .contact-footer-bar {
-                grid-template-columns: 1fr; 
-                padding: 15px;
-                gap: 12px;
-                text-align: left;
-            }
+        .contact-info-block a {
+            color: #00bcd4; /* Bright color taake links wazeh nazar aayin */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border: 1px solid #00bcd4;
+            border-radius: 5px;
+            transition: all 0.3s ease;
             
-            .footer-info-block {
-                font-size: 12px;
-            }
+            /* Yeh lines link ko click block hone se bachati hain */
+            position: relative;
+            z-index: 9999;
+            cursor: pointer;
+            pointer-events: auto;
+        }
 
-            .footer-info-block svg {
-                width: 20px;
-                height: 20px;
-                margin-right: 8px;
-            }
+        .contact-info-block a:hover {
+            background: #00bcd4;
+            color: #222;
         }
     </style>
 </head>
 <body>
 
-    <div class="brochure-container">
-        
-        <header class="header-section">
-            <div class="header-left">
-                <div class="logo-container">
-                    <img class="logo-img" src="https://drive.google.com/thumbnail?id=1pNbINhilG59XGzZZhVzQh8X1CKig6Htx&sz=w1000" alt="MITS - Multi IT Solutions Logo">
-                </div>
-
-                <h1 class="main-headline">
-                    Your One-Stop
-                    <span>IT Solutions</span>
-                    Partner!
-                </h1>
-                
-                <p class="sub-headline">
-                    <strong>Fast. Reliable. Affordable.</strong><br>
-                    We make technology simple and work for you.
-                </p>
-            </div>
-            
-            <div class="header-right">
-                <div class="hero-arc-bg">
-                    <!-- Adjusted / Smaller Laptop Graphic -->
-                    <svg class="laptop-graphic-container" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <ellipse cx="100" cy="140" rx="70" ry="10" fill="#000000" opacity="0.3"/>
-                        <rect x="30" y="25" width="140" height="92" rx="6" fill="#1e1e24" stroke="#ffffff" stroke-width="3"/>
-                        <rect x="35" y="30" width="130" height="82" rx="2" fill="#0d1b2a"/>
-                        <rect x="45" y="42" width="45" height="6" rx="2" fill="#00ffcc" opacity="0.9"/>
-                        <rect x="45" y="54" width="75" height="5" rx="2" fill="#0055ff"/>
-                        <rect x="45" y="64" width="60" height="5" rx="2" fill="#ffffff" opacity="0.7"/>
-                        <rect x="45" y="74" width="90" height="5" rx="2" fill="#00ffcc" opacity="0.9"/>
-                        <rect x="45" y="84" width="40" height="5" rx="2" fill="#ffffff" opacity="0.5"/>
-                        <circle cx="135" cy="50" r="10" fill="#0055ff" opacity="0.5"/>
-                        <polygon points="135,45 140,53 130,53" fill="#ffffff"/>
-                        <circle cx="130" cy="85" r="12" fill="#00ffcc" opacity="0.3"/>
-                        <path d="M125,85 L135,85 M130,80 L130,90" stroke="#00ffcc" stroke-width="2"/>
-                        <circle cx="100" cy="27.5" r="1" fill="#ffffff"/>
-                        <path d="M15,120 L185,120 L195,135 L5,135 Z" fill="#e0e1dd" stroke="#b5b6b2" stroke-width="1"/>
-                        <path d="M30,120 L170,120 L175,130 L25,130 Z" fill="#741a1a" opacity="0.1"/>
-                        <rect x="80" y="131" width="40" height="3" rx="1" fill="#9ab"/>
-                    </svg>
-                </div>
-            </div>
-        </header>
-
-        <section class="badges-row">
-            <div class="badge-item">
-                <svg viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Zm1-13H11v6l5.2,3.2,0.8-1.3-4.5-2.7Z"/></svg>
-                <span>Quick<br>Service</span>
-            </div>
-            <div class="badge-item">
-                <svg viewBox="0 0 24 24"><path d="M12,2s6,2.5,6,6V14c0,3.7-2.6,7.1-6,8-3.4-.9-6-4.3-6-8V8C6,4.5,12,2,12,2Zm-1,13.4,4.9-4.9-1.4-1.4-3.5,3.5-1.5-1.5-1.4,1.4Z"/></svg>
-                <span>Trusted<br>Expertise</span>
-            </div>
-            <div class="badge-item">
-                <svg viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm1,14H11V15H13Zm1.7-5.3c-.4.5-1,.8-1.4,1.1-.4.3-.6.6-.6,1.2H11.3v-.3c0-1,.4-1.5,1-1.9.4-.3.8-.5,1.1-.9.3-.3.4-.7.4-1.1a1.8,1.8,0,0,0-2-1.8,2.152,2.152,0,0,0-1.9,1.3L8.5,8A3.666,3.666,0,0,1,12,5.5a3.528,3.528,0,0,1,3.8,3.5C15.8,10,15.4,10.4,14.7,10.7Z"/></svg>
-                <span>Affordable<br>Prices</span>
-            </div>
-        </section>
-
-        <main class="services-section">
-            <div class="services-title-tag">Our Services</div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V14H20Zm0-7H4V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM8,7H6V9H8Zm4,0H10V9h2Z"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Data Recovery</h3>
-                        <p>Recover lost data from USB drives and Hard Disks.</p>
-                        <span class="sub-info">(Deleted data, Formatted data)</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM7,7h6V9H7Zm0,4h10v2H7Zm0,4h10v2H7Zs"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Lamination Services</h3>
-                        <p>Lamination of Documents to keep them safe and durable.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M4,4H11V11H4ZM4,13H11V20H4ZM13,4H20V11H13ZM13,13H20V20H13Z"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Software Installation</h3>
-                        <p>Windows & other Softwares Installation / Issues.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M17.4,11.3l-2.5-2.5a1,1,0,0,0-1.4,0L7,15.4V17H8.6l6.6-6.6A1,1,0,0,0,17.4,11.3ZM4,20H20v2H4Zm1.5-7.5L10,8,8.5,6.5,4,11V18H7.5Z"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Office Stationary</h3>
-                        <p>Stapler, Office Files, Notepad, Ball Points, Colour Papers / Separators, Brown Envelops etc.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19,13H17V9h2a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H17V3H15V5H9V3H7V5H5A1,1,0,0,0,4,6V8A1,1,0,0,0,5,9H7v4H5a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H7v2h2V17h6v2h2V17h2a1,1,0,0,0,1-1V14A1,1,0,0,0,19,13ZM9,7h6v2H9Zm6,8H9V13h6Z"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Networking Solutions</h3>
-                        <p>Clips, Network Cable and IP Settings.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19,8H17V6a3,3,0,0,0-3-3H10A3,3,0,0,0,7,6V8H5a3,3,0,0,0-3,3v4a3,3,0,0,0,3,3H7v1a3,3,0,0,0,3,3h4a3,3,0,0,0,3-3V18h2a3,3,0,0,0,3-3V11A3,3,0,0,0,19,8ZM9,6a1,1,0,0,1-1h4a1,1,0,0,1,1,1V8H9Zm6,13a1,1,0,0,1-1,1H10a1,1,0,0,1-1-1V16h6Zm4-4a1,1,0,0,1-1,1H17V14H7v2H5a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1H19a1,1,0,0,1,1-1Z"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Computer Accessories</h3>
-                        <p>Keyboard, Mouse, Mouse Pad, USBs, USB Cable, CMOS Battery, WIFI and Bluetooth USB/Adapter etc.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M16,17H8v2h8Zm3-9H17V4H7V8H5a3,3,0,0,0-3,3v5a1,1,0,0,0,1,1H5v3a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V17h2a1,1,0,0,0,1-1V11A3,3,0,0,0,19,8ZM9,6h6V8H9Zm8,14H7V15H17Zm3-5H18V13H6v2H4V11a1,1,0,0,1,1-1H19a1,1,0,0,1,1,1Z"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Printing, Scanning & Photo Copy</h3>
-                        <p>High-quality printing, scanning and photocopy services.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12v3a3,3,0,0,0,3,3H7v4h2V18h6v4h2V18h2a3,3,0,0,0,3-3V12A10,10,0,0,0,12,2Zm8,13a1,1,0,0,1-1,1H17V12H7v4H5a1,1,0,0,1-1-1V12A8,8,0,0,1,19.3,8.7L17.9,10.1A6,6,0,0,0,6.1,12H4.1A8,8,0,0,1,17.5,6.5l1.4-1.4A9.917,9.917,0,0,1,20,12Z"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Online Services</h3>
-                        <p>Driving License, Domicile, CNIC, Passport, FRC, and assistance for LCCI, PEC and other registrations.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H13V13h7ZM11,20H5a1,1,0,0,1-1-1V13h7Zm9-9H4V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1Z"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Book Binding</h3>
-                        <p>Tape Binding for your documents, reports and projects.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM7,7h10v2H7Zm0,4h10v2H7Zm0,4h7v2H7Z"/></svg>
-                    </div>
-                    <div class="service-details">
-                        <h3>Online Form Fillings & Prints</h3>
-                        <p>Educational, Covid 19, NTN Verification, PEC Engineer verification, Railway ticket booking etc.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="wide-services-container">
-                <div class="wide-service-banner">
-                    <div class="wide-banner-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12,2A3,3,0,1,0,15,5,3,3,0,0,0,12,2Zm7.6,12.2a1,1,0,0,0-1.2.7L17,19H7L5.6,14.9a1,1,0,0,0-1.2-.7,1,1,0,0,0-.7,1.2l2,6A1,1,0,0,0,6.6,22H17.4a1,1,0,0,0,.9-.7l2-6A1,1,0,0,0,19.6,14.2ZM12,9a5,5,0,0,0-5,5v2H17V14A5,5,0,0,0,12,9Z"/></svg>
-                    </div>
-                    <div class="wide-banner-text">
-                        <h4>Academic Support</h4>
-                        <p>CVs, University Assignments, Final Projects preparations assistance.</p>
-                    </div>
-                </div>
-
-                <div class="wide-service-banner">
-                    <div class="wide-banner-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM11,7h2v4h4v2H13v4H11V13H7V11h4Z"/></svg>
-                    </div>
-                    <div class="wide-banner-text">
-                        <h4>Certificates & Reports</h4>
-                        <p>Print out of Covid Vaccination Certificates and other online test reports of laboratories / hospitals.</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <section class="trust-section">
-            <div class="quality-badge">
-                Quality<br>You Can<br>Trust!
-            </div>
-            
-            <div class="trust-message">
-                <h2>We Are Here to <span>Make Your Work Easier!</span></h2>
-                <p>Your satisfaction is our priority.</p>
-            </div>
-
-            <div class="footer-illustration">
-                <svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="30" width="45" height="25" fill="#333" rx="2"/>
-                    <rect x="15" y="55" width="35" height="4" fill="#666"/>
-                    <rect x="65" y="10" width="50" height="45" fill="#222" rx="3"/>
-                    <rect x="68" y="13" width="44" height="34" fill="#0077ff"/>
-                    <rect x="85" y="55" width="10" height="10" fill="#444"/>
-                    <rect x="75" y="65" width="30" height="2" fill="#222"/>
-                    <rect x="125" y="45" width="12" height="20" fill="#222" rx="1"/>
-                    <rect x="126" y="47" width="10" height="16" fill="#0077ff"/>
-                </svg>
-            </div>
-        </section>
-
-        <footer class="contact-footer-bar">
-            <div class="footer-info-block">
-                <svg viewBox="0 0 24 24"><path d="M12,2a8,8,0,0,0-8,8c0,5.25,7,11.38,7.3,11.64a1,1,0,0,0,1.4,0C13,19.38,20,13.25,20,10A8,8,0,0,0,12,2Zm0,11a3,3,0,1,1,3-3A3,3,0,0,1,12,13Z"/></svg>
-                <p>
-                    <strong>Address:</strong>
-                    Office # G-34, Chauburji Tower,<br>
-                    Chauburji Chowk, Lahore, Pakistan
-                </p>
-            </div>
-
-            <div class="footer-info-block">
-                <svg viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12a9.894,9.894,0,0,0,1.3,4.9L2,22l5.3-1.3A9.851,9.851,0,0,0,12,22a10,10,0,0,0,10-10A10,10,0,0,0,12,2Zm4.8,11.4c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.5.1-.6.7-.7.9-.3.2-.5.1a6.669,6.669,0,0,1-1.9-1.2,7.324,7.324,0,0,1-1.3-1.6c-.2-.3,0-.5.1-.6s.3-.3.4-.5.2-.3.3-.5,0-.4-.1-.5-.5-1.2-.7-1.6-.4-.4-.5-.4h-.5a1,1,0,0,0-.7.3,3.056,3.056,0,0,0-1,2.3,5.342,5.342,0,0,0,1.1,2.8,12.16,12.16,0,0,0,4.7,4.1,4.894,4.894,0,0,0,1.6.3,2.852,2.852,0,0,0,1.9-1.3,2.339,2.339,0,0,0,.2-1.3C17.1,13.7,16.9,13.5,16.8,11.4Z"/></svg>
-                <p>
-                    <strong>Mobile & WhatsApp:</strong>
-                    <a href="tel:+923214082977">+92 321 4082977</a>
-                </p>
-            </div>
-
-            <div class="footer-info-block">
-                <svg viewBox="0 0 24 24"><path d="M20,4H4A2,2,0,0,0,2,6V18a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V6A2,2,0,0,0,20,4Zm0,4-8,5L4,8V6l8,5,8-5Z"/></svg>
-                <p>
-                    <strong>Email:</strong>
-                    <a href="mailto:mitssolutionspk@gmail.com">mitssolutionspk@gmail.com</a>
-                </p>
-            </div>
-        </footer>
-
-        <div class="bottom-tagline">
-            Smart Solutions for a Better Tomorrow
+    <div class="brochure-card">
+        <div class="brochure-header">
+            <h1>Our Business Brochure</h1>
+            <p>Professional Services & Solutions</p>
         </div>
 
+        <div class="brochure-body">
+            <div class="services-list">
+                <div class="service-item">High Quality Premium Designs</div>
+                <div class="service-item">Fast and Reliable Delivery</div>
+                <div class="service-item">24/7 Customer Support</div>
+                <div class="service-item">Affordable Pricing Plans</div>
+            </div>
+        </div>
+
+        <div class="brochure-footer">
+            <p>For more details or queries, contact us directly:</p>
+            
+            <div class="contact-info-block">
+                <a href="tel:+923001234567">📞 Call Us: +92 300 1234567</a>
+            </div>
+
+            <div class="contact-info-block">
+                <a href="mailto:info@example.com">✉️ Email: info@example.com</a>
+            </div>
+        </div>
     </div>
 
 </body>
